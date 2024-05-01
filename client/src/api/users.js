@@ -14,4 +14,8 @@ const updateUser = async (id, { name, email, age }) => {
     .then((response) => response.data);
 };
 
-export { getUsers, getUser, updateUser };
+const deleteUser = async (id) => {
+  return api.delete(`/users/${id}`).then((response) => response.data);
+};
+
+export { getUsers, getUser, updateUser, deleteUser };

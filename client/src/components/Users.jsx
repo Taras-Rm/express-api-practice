@@ -1,7 +1,20 @@
 import React from "react";
-import { Button, Table } from "antd";
+import { Button, Table, Tooltip, message } from "antd";
+import { DeleteTwoTone } from "@ant-design/icons";
+import { deleteUser } from "../api/users";
 
-function Users({ users, setUpdateUserId }) {
+function Users({ users, setUpdateUserId, fetchUsers }) {
+  const deleteUserHandler = async (id) => {
+    try {
+      await deleteUser(id);
+      fetchUsers();
+      message.success("User deleted");
+    } catch (error) {
+      console.error(error);
+      message.error(error.response.data.message);
+    }
+  };
+
   const columns = [
     {
       title: "Name",
@@ -24,6 +37,20 @@ function Users({ users, setUpdateUserId }) {
       title: "Age",
       dataIndex: "age",
       key: "age",
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (_, user) => {
+        return (
+          <Tooltip title="Delete">
+            <Button
+              icon={<DeleteTwoTone twoToneColor={"red"} />}
+              onClick={() => deleteUserHandler(user.id)}
+            />
+          </Tooltip>
+        );
+      },
     },
   ];
   return (

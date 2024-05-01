@@ -3,7 +3,7 @@ import "./App.css";
 import UserUpdateModal from "./components/UserUpdateModal";
 import Users from "./components/Users";
 import { useEffect, useState } from "react";
-import { getUsers } from "./api/users";
+import { deleteUser, getUsers } from "./api/users";
 
 function App() {
   const [updateUserId, setUpdateUserId] = useState(null);
@@ -29,7 +29,11 @@ function App() {
         <Typography.Title level={2}>Users</Typography.Title>
         <Button type="primary">Create user</Button>
       </div>
-      <Users users={users} setUpdateUserId={(id) => setUpdateUserId(id)} />
+      <Users
+        users={users}
+        setUpdateUserId={(id) => setUpdateUserId(id)}
+        fetchUsers={fetchUsers}
+      />
       {!!updateUserId && (
         <UserUpdateModal
           userId={updateUserId}

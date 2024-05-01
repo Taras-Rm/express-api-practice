@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Table, Tooltip, message } from "antd";
-import { DeleteTwoTone } from "@ant-design/icons";
+import { DeleteTwoTone, EditTwoTone } from "@ant-design/icons";
 import { deleteUser } from "../api/users";
 
 function Users({ users, setUpdateUserId, fetchUsers }) {
@@ -20,13 +20,6 @@ function Users({ users, setUpdateUserId, fetchUsers }) {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (name, { id }) => {
-        return (
-          <Button onClick={() => setUpdateUserId(id)} type="link">
-            {name}
-          </Button>
-        );
-      },
     },
     {
       title: "Email",
@@ -37,18 +30,28 @@ function Users({ users, setUpdateUserId, fetchUsers }) {
       title: "Age",
       dataIndex: "age",
       key: "age",
+      align: "center",
     },
     {
       title: "Action",
       key: "action",
-      render: (_, user) => {
+      align: "center",
+      render: (_, { id }) => {
         return (
-          <Tooltip title="Delete">
-            <Button
-              icon={<DeleteTwoTone twoToneColor={"red"} />}
-              onClick={() => handleDeleteUser(user.id)}
-            />
-          </Tooltip>
+          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+            <Tooltip title="Delete">
+              <Button
+                icon={<DeleteTwoTone twoToneColor={"red"} />}
+                onClick={() => handleDeleteUser(id)}
+              />
+            </Tooltip>
+            <Tooltip title="Edit">
+              <Button
+                icon={<EditTwoTone twoToneColor={"blue"} />}
+                onClick={() => setUpdateUserId(id)}
+              />
+            </Tooltip>
+          </div>
         );
       },
     },

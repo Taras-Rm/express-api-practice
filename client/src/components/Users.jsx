@@ -4,7 +4,7 @@ import { DeleteTwoTone } from "@ant-design/icons";
 import { deleteUser } from "../api/users";
 
 function Users({ users, setUpdateUserId, fetchUsers }) {
-  const deleteUserHandler = async (id) => {
+  const handleDeleteUser = async (id) => {
     try {
       await deleteUser(id);
       fetchUsers();
@@ -46,7 +46,7 @@ function Users({ users, setUpdateUserId, fetchUsers }) {
           <Tooltip title="Delete">
             <Button
               icon={<DeleteTwoTone twoToneColor={"red"} />}
-              onClick={() => deleteUserHandler(user.id)}
+              onClick={() => handleDeleteUser(user.id)}
             />
           </Tooltip>
         );

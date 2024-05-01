@@ -21,7 +21,7 @@ function UserUpdateModal({ userId, clearUpdateUserId, fetchUsers }) {
     userId && fetchUser();
   }, [userId]);
 
-  const onUpdateUserClick = async ({ name, email, age }) => {
+  const handleUpdateUser = async ({ name, email, age }) => {
     try {
       await updateUser(user.id, { name, email, age });
       message.success("User updated");
@@ -45,8 +45,9 @@ function UserUpdateModal({ userId, clearUpdateUserId, fetchUsers }) {
         <Form
           layout="vertical"
           initialValues={user}
-          onFinish={onUpdateUserClick}
+          onFinish={handleUpdateUser}
           form={form}
+          requiredMark={false}
         >
           <Form.Item name={"name"} label={"Name"} rules={[{ required: true }]}>
             <Input />

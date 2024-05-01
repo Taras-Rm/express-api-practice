@@ -1,24 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Button, Table, message } from "antd";
-import { getUsers } from "../api/users";
+import React from "react";
+import { Button, Table } from "antd";
 
-function Users({ setUpdateUserId }) {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const users = await getUsers();
-        setUsers(users);
-      } catch (error) {
-        console.error(error);
-        message.error(error.response.data.message);
-      }
-    };
-
-    fetchUsers();
-  }, []);
-
+function Users({ users, setUpdateUserId }) {
   const columns = [
     {
       title: "Name",

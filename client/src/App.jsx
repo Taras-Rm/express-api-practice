@@ -1,16 +1,17 @@
-import { Button, Typography, message } from "antd";
+import { message } from "antd";
 import "./App.css";
 import UserUpdateModal from "./components/UserUpdateModal";
 import Users from "./components/Users";
 import { useEffect, useState } from "react";
-import { deleteUser, getUsers } from "./api/users";
+import { getUsers } from "./api/users";
 import UserCreateModal from "./components/UserCreateModal";
+import Header from "./components/Header";
 
 function App() {
+  const [users, setUsers] = useState([]);
+
   const [updateUserId, setUpdateUserId] = useState(null);
   const [isCreateUserModalOpen, setIsCreateUserModalOpen] = useState(false);
-
-  const [users, setUsers] = useState([]);
 
   const fetchUsers = async () => {
     try {
@@ -28,12 +29,7 @@ function App() {
 
   return (
     <div className="app">
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography.Title level={2}>Users</Typography.Title>
-        <Button type="primary" onClick={() => setIsCreateUserModalOpen(true)}>
-          Create user
-        </Button>
-      </div>
+      <Header setIsCreateUserModalOpen={setIsCreateUserModalOpen} />
       <Users
         users={users}
         setUpdateUserId={(id) => setUpdateUserId(id)}

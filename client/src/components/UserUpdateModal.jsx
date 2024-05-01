@@ -36,7 +36,7 @@ function UserUpdateModal({ userId, clearUpdateUserId, fetchUsers }) {
   return (
     <Modal
       title={"Update user"}
-      open={true}
+      open={userId}
       onCancel={clearUpdateUserId}
       okText={"Update"}
       onOk={() => form.submit()}

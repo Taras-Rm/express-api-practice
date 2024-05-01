@@ -30,7 +30,7 @@ class User {
   static async updateById(id, { name, email, age }) {
     const user = users.find((u) => String(u.id) === String(id));
     if (!user) {
-      throw new Error(`user (id: ${id}) not found `);
+      return null;
     }
 
     user.name = name;
@@ -43,14 +43,14 @@ class User {
   static async deleteById(id) {
     const idx = users.findIndex((u) => String(u.id) === String(id));
     if (idx === -1) {
-      throw new Error(`user (id: ${id}) not found `);
+      return idx;
     }
 
-    const userForDelete = users[idx];
+    const userIdForDelete = users[idx];
 
     users.splice(idx, 1);
 
-    return userForDelete;
+    return userIdForDelete;
   }
 }
 

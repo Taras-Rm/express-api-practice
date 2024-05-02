@@ -23,6 +23,10 @@ class User {
     return users.find((u) => String(u.id) === String(id));
   }
 
+  static async getByEmail(email) {
+    return users.find((u) => u.email === email);
+  }
+
   static async getAll() {
     return users;
   }

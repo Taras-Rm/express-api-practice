@@ -1,4 +1,5 @@
 const User = require("../db/users");
+const ApiError = require("../errors/ApiError");
 const HTTP_STATUSES = require("../utils/httpStatuses");
 
 // create new user
@@ -6,6 +7,15 @@ const HTTP_STATUSES = require("../utils/httpStatuses");
 const createUser = async (req, res, next) => {
   try {
     const { name, email, age } = req.body;
+
+    const existingUser = await User.getByEmail(email);
+    if (existingUser) {
+      throw new ApiError(
+        HTTP_STATUSES.BAD_REQUEST,
+        "existing email",
+        `User with email: ${email} already exists`
+      );
+    }
 
     const newUser = await User.create({ name, email, age });
 
@@ -47,6 +57,15 @@ const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { name, email, age } = req.body;
+
+    const existingUser = await User.getByEmail(email);
+    if (existingUser && String(existingUser.id) !== String(id)) {
+      throw new ApiError(
+        HTTP_STATUSES.BAD_REQUEST,
+        "existing email",
+        `User with email: ${email} already exists`
+      );
+    }
 
     const updatedUser = await User.updateById(id, { name, email, age });
 

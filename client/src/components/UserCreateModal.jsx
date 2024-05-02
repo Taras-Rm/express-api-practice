@@ -6,11 +6,16 @@ import { createUser } from "../api/users";
 function UserCreateModal({ isOpen, closeModal, fetchUsers }) {
   const [form] = useForm();
 
+  const onCloseModal = () => {
+    closeModal();
+    form.resetFields();
+  };
+
   const handleCreateUser = async ({ name, email, age }) => {
     try {
       await createUser({ name, email, age });
       message.success("User created");
-      closeModal();
+      onCloseModal();
       fetchUsers();
     } catch (error) {
       console.error(error);
@@ -21,7 +26,7 @@ function UserCreateModal({ isOpen, closeModal, fetchUsers }) {
   return (
     <Modal
       open={isOpen}
-      onCancel={closeModal}
+      onCancel={onCloseModal}
       title={"Create user"}
       okText={"Create"}
       onOk={() => form.submit()}
@@ -33,7 +38,7 @@ function UserCreateModal({ isOpen, closeModal, fetchUsers }) {
         requiredMark={false}
       >
         <Form.Item name={"name"} label={"Name"} rules={[{ required: true }]}>
-          <Input />
+          <Input autoComplete="off" />
         </Form.Item>
         <div style={{ display: "flex" }}>
           <Form.Item
@@ -42,7 +47,7 @@ function UserCreateModal({ isOpen, closeModal, fetchUsers }) {
             style={{ flex: 1 }}
             rules={[{ required: true }]}
           >
-            <Input />
+            <Input autoComplete="off" />
           </Form.Item>
           <Form.Item
             name={"age"}

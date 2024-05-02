@@ -1,5 +1,4 @@
 const User = require("../db/users");
-const ApiError = require("../errors/ApiError");
 const HTTP_STATUSES = require("../utils/httpStatuses");
 
 // create new user

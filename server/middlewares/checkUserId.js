@@ -12,7 +12,7 @@ const checkUserId = async (req, res, next) => {
       throw new ApiError(
         HTTP_STATUSES.BAD_REQUEST,
         "Bad request",
-        "invalid user id"
+        `invalid user id: ${id}`
       );
     }
 

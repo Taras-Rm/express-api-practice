@@ -7,13 +7,17 @@ const {
   deleteUser,
 } = require("../controllers/users");
 const checkUserId = require("../middlewares/checkUserId");
+const {
+  createUserValidator,
+  updateUserValidator,
+} = require("../validators/users");
 
 const router = Router();
 
-router.post("/", createUser);
+router.post("/", createUserValidator, createUser);
 router.get("/:id", checkUserId, getUser);
 router.get("/", getUsers);
-router.put("/:id", checkUserId, updateUser);
+router.put("/:id", updateUserValidator, checkUserId, updateUser);
 router.delete("/:id", checkUserId, deleteUser);
 
 module.exports = router;

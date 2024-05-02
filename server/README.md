@@ -7,6 +7,7 @@ This is basic users API (CRUD).
 - Node.js
 - Express.js
 - Winston
+- express-validator
 
  #### This API is able to do 5 things:
 

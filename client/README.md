@@ -1,24 +1,31 @@
-# Users API Client
+# Users API (client)
 
 This is basic client for users API testing.
 
-## Tech stack
+## Technologies
 
-- React.js, Antd, Axios.
+- React.js
+- Antd
+- Axios
 
 ## Run app
 
-Clone repository (move to client)
+1. Clone repository:
 ``` bash
 git clone https://github.com/Taras-Rm/express-api-practice.git
 ```
 
-Install dependencies
+2. Move to client folder:
+``` bash
+cd ./client
+```
+
+3. Install dependencies
 ``` bash
 npm install
 ```
 
-Start app
+4. Start app
 ``` bash
 npm run dev
 ```

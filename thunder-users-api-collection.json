@@ -1,0 +1,81 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Users API",
+    "collectionId": "78a31c41-a915-47bc-af91-8acef7e32ca8",
+    "dateExported": "2024-05-02T07:58:48.225Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5cc987de-1612-4d88-8e85-885f1bc8336a",
+            "colId": "78a31c41-a915-47bc-af91-8acef7e32ca8",
+            "containerId": "",
+            "name": "Create user",
+            "url": "http://localhost:3000/api/users",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-04-28T21:20:42.723Z",
+            "modified": "2024-05-02T07:58:20.258Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Bob\",\n  \"email\": \"bob@example.com\",\n  \"age\": 12\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "64f0e17a-e305-43bc-81d5-4f12d30e23b8",
+            "colId": "78a31c41-a915-47bc-af91-8acef7e32ca8",
+            "containerId": "",
+            "name": "Get all users",
+            "url": "http://localhost:3000/api/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-04-28T21:22:28.232Z",
+            "modified": "2024-05-02T06:22:48.016Z",
+            "headers": []
+        },
+        {
+            "_id": "cf4b0104-adab-4ff9-9c8b-4b3f85f5752c",
+            "colId": "78a31c41-a915-47bc-af91-8acef7e32ca8",
+            "containerId": "",
+            "name": "Delete user",
+            "url": "http://localhost:3000/api/users/1",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-04-28T21:24:06.921Z",
+            "modified": "2024-04-28T22:07:44.273Z",
+            "headers": []
+        },
+        {
+            "_id": "6ae20917-6f01-4b73-868a-c45326a029b5",
+            "colId": "78a31c41-a915-47bc-af91-8acef7e32ca8",
+            "containerId": "",
+            "name": "Get user",
+            "url": "http://localhost:3000/api/users/2",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-04-28T21:27:42.161Z",
+            "modified": "2024-05-02T06:40:48.581Z",
+            "headers": []
+        },
+        {
+            "_id": "791353d9-fa30-462e-8ed5-e21dc20acb55",
+            "colId": "78a31c41-a915-47bc-af91-8acef7e32ca8",
+            "containerId": "",
+            "name": "Update user",
+            "url": "http://localhost:3000/api/users/2",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-04-28T21:35:41.012Z",
+            "modified": "2024-05-02T07:58:36.769Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Tom\",\n  \"email\": \"tom@example.com\",\n  \"age\": 20\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "w8Nll91FOeYhTeNnT5chRyNtFvnYqSP5iUp_zlDQbnOVJ8jKguUIUdIPkan5ucaKbPu6ek7cAzohxcro_J_Icg"
+}

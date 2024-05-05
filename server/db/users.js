@@ -50,7 +50,7 @@ class User {
       return idx;
     }
 
-    const userIdForDelete = users[idx];
+    const userIdForDelete = users[idx].id;
 
     users.splice(idx, 1);
 
